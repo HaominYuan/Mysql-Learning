@@ -1,0 +1,12 @@
+# 计算字段
+  * 存储在数据库表中的数据一般不是应用程序所需要的格式。我们需要直接从数据库中检索出转换、计算u 哦格式化的数据；而不是检索出数据，然后再在客户机应用程序或报告程序中重新格式化。
+# 拼接字段
+  * 拼接是将值联结到一起构成单个值，解决办法是把两个列拼接在一起。用Concat()函数实现。
+    * SELECT Concat(column_name1, '  ', column_name2) FROM table_name;
+  * MySQL使用Concat()函数来实现拼接字段，多数DBMS使用+或||来实现拼接。
+  * RTrim(column_name)去掉右边的空格；LTrim(column_name)去掉左边的空格；Trim(column_name)去掉两边的空格。
+# 使用别名
+  * SELECT concat(column_name1, ' ', columan_name2) AS new_column_name;
+# 执行算术计算
+  * SELECT column_name1, column_name2, column_name3 * column_name4 AS new_column_name FROM table_name
+  * 算术表包括：+ - * / 分别代表 加 减 乘 除
