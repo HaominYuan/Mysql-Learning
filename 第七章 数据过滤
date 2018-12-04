@@ -1,0 +1,23 @@
+# 组合WHERE子句
+  * MySQL允许给出多个WHERE子句。这些子句可以两种方式使用：
+    * 以AND的子句的方式。
+    * 以OR子句的方式。
+# AND操作符
+  * SELECT column_name1, column_name2 FROM table_name WHERE f(column_name2) AND f(column_name3);
+# OR操作符
+  * SELECT column_name1, column_name2 FROM table_name WHERE f(column_name2) OR f(column_name3);
+# 计算次序
+  * 因为AND的优先级比OR的高，所以在某些情况下最好用括号扩起来。
+    * SELECT column_name1, column_name2 FROM table_name WHERE f(column_name2) OR f(column_name3) AND f(column_name4);
+    * SELECT column_name1, column_name2 FROM table_name WHERE (f(column_name2) OR f(column_name3)) AND f(column_name4);
+    * 上面两句话是有区别的。
+# IN操作符
+  * SELECT column_name1 FROM table_name WHERE column_name2 IN (a, b);
+  * SELECT column_name1 FROM table_name WHERE column_name2 = a OR column_name2 = b;
+  * 上面两句话等价，但是IN比OR有以下优势：
+    * 在使用唱的合法选项清单时，IN操作符的语法更清楚且更直观。
+    * 在使用IN时，计算的次序更容易管理（因为使用的操作符更少）。
+    * IN操作符一般比OR操作符清单执行更快。
+    * IN的最大优势是可以包含其他SELECT语句，使得能够更动态地建立WHERE子句。
+# NOT操作符
+  * SELECT column_name1 FROM table_table WHERE column_name2 NOT IN (a, b);
