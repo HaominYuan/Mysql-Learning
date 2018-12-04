@@ -1,0 +1,1 @@
+SELECT FirstName, LastName, City, State FROM Address RIGHT JOIN Person ON Person.PersonId = Address.PersonId;
