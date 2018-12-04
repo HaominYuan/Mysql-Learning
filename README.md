@@ -1,2 +1,2 @@
 # mysqllearning
-Mysql必知必会笔记
+Mysql必知必会笔记和leetcode练习
